@@ -563,7 +563,7 @@ def detect_faces():
     # print("hit")
     # Send the encoded image to the receiver Flask server
     files = {"image": ("image.jpg", io.BytesIO(encoded_image.tobytes()), "image/jpeg")}
-    response = requests.post("http://127.0.0.1:5000/detect_liveness", files=files)
+    response = requests.post("https://detectliveness.pythonanywhere.com/detect_liveness", files=files)
     result = response.text  # Get the response as plain text
     label, value = result.split(" ")
     value = float(value)
